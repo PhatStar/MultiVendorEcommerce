@@ -38,5 +38,5 @@ public class User {
 
     @ManyToMany
     @JsonIgnore //FE sẽ kh thấy thông tin coupon đã dùng, nhưng BE vẫn có thể xử lý đc như bthg
-    private Set<Coupon> usedCoupon = new HashSet<>(); //HashSet -> Chỉ có 1 mã khuyến mãi duy nhất
+    private Set<Coupon> usedCoupons = new HashSet<>(); //HashSet -> Chỉ có 1 mã khuyến mãi duy nhất
 }

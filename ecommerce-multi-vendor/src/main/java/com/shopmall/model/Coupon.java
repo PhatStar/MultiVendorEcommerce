@@ -1,12 +1,11 @@
 package com.shopmall.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -28,4 +27,9 @@ public class Coupon {
     private LocalDate validityEndDate;
 
     private double minimumOrderValue;
+
+    private boolean isActive = true;
+
+    @ManyToMany(mappedBy = "usedCoupons") //ánh xạ theo thuộc tính usedCoupons trong entity User – phía sở hữu quan hệ.
+    private Set<User> usedByUsers  = new HashSet<>();
 }
